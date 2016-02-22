@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                   <strong>Name:</strong> <%= @course.name %>
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <%= image_tag(@course.picture) %>
+                                    <p>
+                                      <strong>Date added:</strong>
+                                        <%= @course.date_added %>
+                                    </p>
+                                     <strong>Description:</strong> <%= @course.description %><p>
+                                     <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-primary"  %> |
+                                      <%= link_to 'Back', courses_path, class: "btn btn-primary"  %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<% if @course.videos.empty? %>
+  <h3>No videos uploaded yet</h3>
+  <% else %>
+    <h2>Videos</h2>
+    <% @course.videos.reverse.each do |video| %>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+          <%= sanitize video.trailer, :tags => ['iframe'], :size => "150x100"%>
+      <div class="caption">
+        <h6 class="pull-right"><%= video.week_no %></h6>
+        <h5><%=link_to video.name,video %></h5>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    
+<% end %>
+
+

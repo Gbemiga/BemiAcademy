@@ -1,0 +1,6 @@
+<h1>Login</h1>
+<%= bootstrap_form_tag url: '/login' do |f| %>
+  <%= f.email_field :email, placeholder: 'name@example.com' %>
+  <%= f.password_field :password, value: 'name@example.com' %>
+  <%= f.submit "Login"%>
+<% end %>

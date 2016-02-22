@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Listing Courses</h3>
+
+
+    <% @courses.each do |course| %>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+          <%= image_tag(course.picture) %>
+      <div class="caption">
+        <h6 class="pull-right"><%= course.date_added %></h6>
+        <h5><%=link_to course.name,course %></h5>
+        <p><%= course.description %></p>
+                            </div>
+        <%= link_to 'Show', course %>
+        <%= link_to 'Edit', edit_course_path(course) %>
+        <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+    <% end %>
+
+</table>
+
+<br>
+
+<%= link_to 'New Course', new_course_path %>

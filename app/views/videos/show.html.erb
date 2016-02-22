@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @video.name %>
+</p>
+
+<p>
+  <strong>Trailer:</strong>
+  <%= sanitize@video.trailer, :tags => ['iframe'] %>
+</p>
+
+<p>
+  <strong>Week no:</strong>
+  <%= @video.week_no %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @video.course.name %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
