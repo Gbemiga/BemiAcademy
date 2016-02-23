@@ -23,6 +23,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                 <li><%= link_to "Github", 'http://www.github.com/gbemiga'%></li>
                     <li>
                         <%=link_to "Courses",courses_path %>
                     </li>
@@ -30,10 +31,11 @@
                          <li><%= link_to "Sign In", login_path%></li>
                          <li><%= link_to "Sign Up", new_student_path%></li>
                     <% else %>
-                        <li>Signed in as <%=@current_student.username%></li>
+                        <li><%= link_to "Signed in as " + @current_student.username, @current_student%></li>
+                        <li><%= link_to "Profile", @current_student%></li>
                         <li><%= link_to "Sign Out", logout_path%></li>
                     <% end %> 
-                    <li><%= link_to "Github", 'http://www.github.com/gbemiga'%></li>
+                   
                 </ul>
             </div>
            
